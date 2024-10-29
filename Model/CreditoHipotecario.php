@@ -10,8 +10,14 @@ class CreditoHipotecario {
     private $plazoCredito;
     private $tasaInteres;
     private $tipoSeguro;
+    private $departamento;
+    private $provincia;
+    private $distrito;
+    private $fechaNacimiento;
+    private $estadoCivil;
+    private $tipoIngreso;
 
-    public function __construct($nombre, $apellidos, $dni, $correo, $ingresoMensual, $montoCredito, $plazoCredito, $tipoSeguro) {
+    public function __construct($nombre, $apellidos, $dni, $correo, $ingresoMensual, $montoCredito, $plazoCredito, $tipoSeguro, $departamento, $provincia, $distrito, $fechaNacimiento, $estadoCivil, $tipoIngreso) {
         $this->nombre = $nombre;
         $this->apellidos = $apellidos;
         $this->dni = $dni;
@@ -20,6 +26,12 @@ class CreditoHipotecario {
         $this->montoCredito = $montoCredito;
         $this->plazoCredito = $plazoCredito * 12; // Convertir años a meses
         $this->tipoSeguro = $tipoSeguro;
+        $this->departamento = $departamento;
+        $this->provincia = $provincia;
+        $this->distrito = $distrito;
+        $this->fechaNacimiento = $fechaNacimiento;
+        $this->estadoCivil = $estadoCivil;
+        $this->tipoIngreso = $tipoIngreso;
         $this->tasaInteres = $this->calcularTasaInteres();
     }
 
@@ -60,6 +72,9 @@ class CreditoHipotecario {
             <p><strong>DNI:</strong> ' . $this->dni . '</p>
             <p><strong>Correo:</strong> ' . $this->correo . '</p>
             <p><strong>Ingreso Mensual:</strong> S/ ' . number_format($this->ingresoMensual, 2) . '</p>
+            <p><strong>Departamento:</strong> ' . $this->departamento . '</p>
+            <p><strong>Provincia:</strong> ' . $this->provincia . '</p>
+            <p><strong>Distrito:</strong> ' . $this->distrito . '</p>
             <p><strong>Tasa de Interés:</strong> ' . $this->getTasaInteres() . '</p>
             <p><strong>Seguro:</strong> ' . $this->tipoSeguro . ' - Calculado sobre el saldo restante</p>
             <table style="width: 100%; border-collapse: collapse; text-align: center;">
